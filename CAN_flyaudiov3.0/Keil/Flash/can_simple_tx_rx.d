@@ -1,0 +1,16 @@
+.\flash\can_simple_tx_rx.o: ..\can_simple_txrx\can_simple_tx_rx.c
+.\flash\can_simple_tx_rx.o: ..\can_simple_txrx\can_simple_tx_rx.h
+.\flash\can_simple_tx_rx.o: ..\Drivers\include\lpc_types.h
+.\flash\can_simple_tx_rx.o: D:\MDK472\ARM\ARMCC\bin\..\include\stdint.h
+.\flash\can_simple_tx_rx.o: ..\Drivers\include\lpc17xx_can.h
+.\flash\can_simple_tx_rx.o: ..\Core\Device\NXP\LPC17xx\Include\LPC17xx.h
+.\flash\can_simple_tx_rx.o: D:\MDK472\ARM\CMSIS\Include\core_cm3.h
+.\flash\can_simple_tx_rx.o: D:\MDK472\ARM\CMSIS\Include\core_cmInstr.h
+.\flash\can_simple_tx_rx.o: D:\MDK472\ARM\CMSIS\Include\core_cmFunc.h
+.\flash\can_simple_tx_rx.o: ..\Core\Device\NXP\LPC17xx\Include\system_LPC17xx.h
+.\flash\can_simple_tx_rx.o: ..\can_simple_txrx\lpc17xx_libcfg.h
+.\flash\can_simple_tx_rx.o: ..\Drivers\include\lpc17xx_pinsel.h
+.\flash\can_simple_tx_rx.o: ..\Drivers\include\lpc17xx_exti.h
+.\flash\can_simple_tx_rx.o: ..\Drivers\include\lpc17xx_clkpwr.h
+.\flash\can_simple_tx_rx.o: ..\Drivers\include\debug_frmwrk.h
+.\flash\can_simple_tx_rx.o: ..\Drivers\include\lpc17xx_uart.h
