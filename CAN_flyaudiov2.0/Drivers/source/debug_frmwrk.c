@@ -286,6 +286,20 @@ void debug_frmwrk_init(void)
     PINSEL_ConfigPin(&PinCfg);
     PinCfg.Pinnum = 16;
     PINSEL_ConfigPin(&PinCfg);
+		
+#elif (USED_UART_DEBUG_PORT==3)
+/*
+     * Initialize UART3 pin connect
+     */
+    PinCfg.Funcnum = 3;
+    PinCfg.OpenDrain = 0;
+    PinCfg.Pinmode = 0;
+    PinCfg.Pinnum = 28;
+    PinCfg.Portnum = 4;
+    PINSEL_ConfigPin(&PinCfg);
+    PinCfg.Pinnum = 29;
+    PINSEL_ConfigPin(&PinCfg);
+		
 #endif
 
     /* Initialize UART Configuration parameter structure to default state:

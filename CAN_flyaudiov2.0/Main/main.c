@@ -32,7 +32,7 @@ int main(void)
     PINSEL_ConfigPin(&PinCfg);
 
 
-    _DBG_("CAN init\n\r");
+    _DBG_("CAN init1\n\r");
     
     //Initialize CAN
     CAN_Init(LPC_CAN, 500000);
