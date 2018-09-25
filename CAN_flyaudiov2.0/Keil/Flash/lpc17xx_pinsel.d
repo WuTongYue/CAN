@@ -1,0 +1,9 @@
+.\flash\lpc17xx_pinsel.o: ..\Drivers\source\lpc17xx_pinsel.c
+.\flash\lpc17xx_pinsel.o: ..\Drivers\include\lpc17xx_pinsel.h
+.\flash\lpc17xx_pinsel.o: ..\Core\Device\NXP\LPC17xx\Include\LPC17xx.h
+.\flash\lpc17xx_pinsel.o: D:\MDK472\ARM\CMSIS\Include\core_cm3.h
+.\flash\lpc17xx_pinsel.o: D:\MDK472\ARM\ARMCC\bin\..\include\stdint.h
+.\flash\lpc17xx_pinsel.o: D:\MDK472\ARM\CMSIS\Include\core_cmInstr.h
+.\flash\lpc17xx_pinsel.o: D:\MDK472\ARM\CMSIS\Include\core_cmFunc.h
+.\flash\lpc17xx_pinsel.o: ..\Core\Device\NXP\LPC17xx\Include\system_LPC17xx.h
+.\flash\lpc17xx_pinsel.o: ..\Drivers\include\lpc_types.h

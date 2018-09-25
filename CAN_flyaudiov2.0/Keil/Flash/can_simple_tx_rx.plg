@@ -1,0 +1,14 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\CAN Êý¾Ý½âÎö\CAN_flyaudiov2.0\Keil\can_simple_tx_rx.uvproj
+Project File Date:  09/24/2018
+
+<h2>Output:</h2>
+Build target 'LPC1700 FLASH'
+linking...
+Program Size: Code=14424 RO-data=252 RW-data=376 ZI-data=624  
+FromELF: creating hex file...
+".\Flash\can_simple_tx_rx.axf" - 0 Errors, 0 Warning(s).
