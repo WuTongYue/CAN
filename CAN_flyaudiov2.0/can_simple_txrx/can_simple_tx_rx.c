@@ -128,14 +128,14 @@ CAN_ERROR CAN_SetupAFTable(void) {
     /* Set up Explicit Standard Frame Format Identifier Section
      * In this simple test, it has 1 entry with ID of 0x200
      */
-    result = CAN_LoadExplicitEntry(LPC_CAN2, RX_MSG_ID, STD_ID_FORMAT);
+    result = CAN_LoadExplicitEntry(LPC_CAN, RX_MSG_ID, STD_ID_FORMAT);
     if(result != CAN_OK)
         return result;
     
     /* Set up Explicit Extended Frame Format Identifier Section
      * In this simple test, it has 16 entries ID
      */
-    result = CAN_LoadExplicitEntry(LPC_CAN2, RX_EXT_MSG_ID, EXT_ID_FORMAT);
+    result = CAN_LoadExplicitEntry(LPC_CAN, RX_EXT_MSG_ID, EXT_ID_FORMAT);
     
     return result;
 }
@@ -154,13 +154,13 @@ void CAN_IRQHandler(void)
      * Note that: Interrupt register CANICR will be reset after read.
      * So function "CAN_IntGetStatus" should be call only one time
      */
-    IntStatus = CAN_IntGetStatus(LPC_CAN2);
+    IntStatus = CAN_IntGetStatus(LPC_CAN);
 
     //check receive interrupt
     if((IntStatus >> 0) & 0x01)
     {
 			  _DBG_("Message received!");
-        CAN_ReceiveMsg(LPC_CAN2, (CAN_MSG_Type *)&RxMsgbuf[count]);
+        CAN_ReceiveMsg(LPC_CAN, (CAN_MSG_Type *)&RxMsgbuf[count]);
 		  	count++;
         RxFlg = TRUE;
 			if(count==RXCOUNT)  count=0;
