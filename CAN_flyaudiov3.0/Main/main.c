@@ -39,7 +39,7 @@ int main(void)
     CAN_IRQCmd(LPC_CAN, CANINT_RIE, ENABLE);
 
     // Set AF Mode
-    CAN_SetAFMode(LPC_CANAF, CAN_Normal);
+    CAN_SetAFMode(LPC_CANAF, CAN_AccBP);
     
     //Enable CAN Interrupt
     NVIC_EnableIRQ(CAN_IRQn);
@@ -50,7 +50,7 @@ int main(void)
     
         if(RxFlg)
         {
-           _DBG_("Message received!");
+        
            RxFlg = FALSE;
            PrintMessage((CAN_MSG_Type*)&RxMsg);
         }
