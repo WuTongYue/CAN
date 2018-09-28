@@ -1,0 +1,16 @@
+--cpu Cortex-M3
+".\flash\startup_lpc17xx.o"
+".\flash\system_lpc17xx.o"
+".\flash\debug_frmwrk.o"
+".\flash\lpc17xx_can.o"
+".\flash\lpc17xx_clkpwr.o"
+".\flash\lpc17xx_exti.o"
+".\flash\lpc17xx_pinsel.o"
+".\flash\lpc17xx_uart.o"
+".\flash\can_simple_tx_rx.o"
+".\flash\usart.o"
+".\flash\main.o"
+--library_type=microlib --strict --scatter ".\Flash\can_simple_tx_rx.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Flash\can_simple_tx_rx.map" -o .\Flash\can_simple_tx_rx.axf
