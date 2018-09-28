@@ -12,10 +12,8 @@ __IO Bool TxFlg =  FALSE;
 
 int main(void) 
 { 
-    uint8_t status;
     PINSEL_CFG_Type PinCfg;
   
- //  	SystemInit();
 	
     debug_frmwrk_init();
     print_menu(menu);
@@ -48,7 +46,6 @@ int main(void)
 		// Set AF Mode
     CAN_SetAFMode(LPC_CANAF, CAN_AccBP);
 		
-	//	CAN_ModeConfig(LPC_CAN,CAN_OPERATING_MODE,ENABLE);
     
 		CAN_InitRXMessage();     
 		
@@ -60,7 +57,7 @@ int main(void)
         {
          
            RxFlg = FALSE;
-           PrintMessage((CAN_MSG_Type*)&RxMsgbuf[count]);
+           PrintMessage_simple((CAN_MSG_Type*)&RxMsgbuf[count]);
         }
 				 
        // CLKPWR_Sleep();                                    // Enter normal sleep mode

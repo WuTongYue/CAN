@@ -25,6 +25,7 @@
 void print_menu(uint8_t* menu);
 void Error_Loop(void);
 void PrintMessage(CAN_MSG_Type* CAN_Msg);
+void PrintMessage_simple(CAN_MSG_Type* CAN_Msg);
 CAN_ERROR CAN_SetupAFTable(void);
 void CAN_InitRXMessage(void);
 

@@ -49,11 +49,13 @@ void (*_db_msg)(LPC_UART_TypeDef *UARTx, const void *s);
 void (*_db_msg_)(LPC_UART_TypeDef *UARTx, const void *s);
 void (*_db_char)(LPC_UART_TypeDef *UARTx, uint8_t ch);
 void (*_db_dec)(LPC_UART_TypeDef *UARTx, uint8_t decn);
+void (*_db_dec_8)(LPC_UART_TypeDef *UARTx, uint16_t decn);
 void (*_db_dec_16)(LPC_UART_TypeDef *UARTx, uint16_t decn);
 void (*_db_dec_32)(LPC_UART_TypeDef *UARTx, uint32_t decn);
 void (*_db_hex)(LPC_UART_TypeDef *UARTx, uint8_t hexn);
 void (*_db_hex_16)(LPC_UART_TypeDef *UARTx, uint16_t hexn);
 void (*_db_hex_32)(LPC_UART_TypeDef *UARTx, uint32_t hexn);
+void (*_db_hex_32_no0X)(LPC_UART_TypeDef *UARTx, uint32_t hexn);
 uint8_t (*_db_get_char)(LPC_UART_TypeDef *UARTx);
 
 
@@ -148,6 +150,18 @@ void UARTPutDec16(LPC_UART_TypeDef *UARTx, uint16_t decnum)
     UARTPutChar(UARTx, '0'+c1);
 }
 
+
+void UARTPutDec8(LPC_UART_TypeDef *UARTx, uint16_t decnum)
+{
+    uint8_t c1=decnum%10;
+    uint8_t c2=(decnum/10)%10;
+    uint8_t c3=(decnum/100)%10;
+    UARTPutChar(UARTx, '0'+c3);
+    UARTPutChar(UARTx, '0'+c2);
+    UARTPutChar(UARTx, '0'+c1);
+}
+
+
 /*********************************************************************//**
  * @brief       Puts a decimal number to UART port
  * @param[in]   UARTx   Pointer to UART peripheral
@@ -226,6 +240,18 @@ void UARTPutHex32 (LPC_UART_TypeDef *UARTx, uint32_t hexnum)
     uint8_t nibble, i;
 
     UARTPuts(UARTx, "0x");
+    i = 7;
+    do {
+        nibble = (hexnum >> (4*i)) & 0x0F;
+        UARTPutChar(UARTx, (nibble > 9) ? ('A' + nibble - 10) : ('0' + nibble));
+    } while (i--);
+}
+
+
+void UARTPutHex32_no0x(LPC_UART_TypeDef *UARTx, uint32_t hexnum)
+{
+    uint8_t nibble, i;
+
     i = 7;
     do {
         nibble = (hexnum >> (4*i)) & 0x0F;
@@ -325,7 +351,9 @@ void debug_frmwrk_init(void)
     _db_hex = UARTPutHex;
     _db_hex_16 = UARTPutHex16;
     _db_hex_32 = UARTPutHex32;
-    _db_dec = UARTPutDec;
+		_db_hex_32_no0X=UARTPutHex32_no0x;
+		_db_dec = UARTPutDec;
+		_db_dec_8= UARTPutDec8;
     _db_dec_16 = UARTPutDec16;
     _db_dec_32 = UARTPutDec32;
     _db_get_char = UARTGetChar;

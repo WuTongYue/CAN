@@ -1,6 +1,6 @@
 #include "can_simple_tx_rx.h"
 
-#define RXCOUNT  7
+#define RXCOUNT  12
 
 uint8_t menu[]=
     "********************************************************************************\n\r"
@@ -15,7 +15,7 @@ extern __IO CAN_MSG_Type TxMsg;
 extern __IO CAN_MSG_Type RxMsg;
 extern __IO Bool RxFlg;
 extern __IO Bool TxFlg;
-__IO CAN_MSG_Type RxMsgbuf[7];
+__IO CAN_MSG_Type RxMsgbuf[12];
 uint8_t count=0;
 
 
@@ -94,6 +94,25 @@ void PrintMessage(CAN_MSG_Type* CAN_Msg)
 }
 
 
+void PrintMessage_simple(CAN_MSG_Type* CAN_Msg)
+{
+    uint32_t data;
+
+    _DBH32(CAN_Msg->id);_DBG_("");
+
+    _DBG_("  ");_DBD8(CAN_Msg->len);_DBG_(" BYTE");
+
+    data = (CAN_Msg->dataA[0])|(CAN_Msg->dataA[1]<<8)|(CAN_Msg->dataA[2]<<16)|(CAN_Msg->dataA[3]<<24);
+
+    _DBG_("  "); _DBH32_no0x(data);_DBG_("");
+
+    data = (CAN_Msg->dataB[0])|(CAN_Msg->dataB[1]<<8)|(CAN_Msg->dataB[2]<<16)|(CAN_Msg->dataB[3]<<24);
+
+    _DBG_("  "); _DBH32_no0x(data);_DBG_("");
+
+    _DBG_("");
+}
+
 
 void CAN_InitRXMessage(void)
 {
@@ -101,19 +120,19 @@ void CAN_InitRXMessage(void)
 	TxMsg.dataA[0] = TxMsg.dataA[1] = TxMsg.dataA[2] = TxMsg.dataA[3] = 0x00;
   TxMsg.dataB[0] = TxMsg.dataB[1] = TxMsg.dataB[2] = TxMsg.dataB[3] = 0x00;
 	
-  RxMsgbuf[0].id =RxMsgbuf[1].id =RxMsgbuf[2].id =RxMsgbuf[3].id=RxMsgbuf[4].id =RxMsgbuf[5].id=RxMsgbuf[6].id=0x00;
-  RxMsgbuf[0].len =RxMsgbuf[1].len= RxMsgbuf[2].len =RxMsgbuf[3].len= RxMsgbuf[4].len =RxMsgbuf[5].len= RxMsgbuf[6].len =0x00;
-	RxMsgbuf[0].type=RxMsgbuf[1].type=RxMsgbuf[2].type=RxMsgbuf[3].type=RxMsgbuf[4].type=RxMsgbuf[5].type=RxMsgbuf[6].type=0x00;
-	RxMsgbuf[0].format=RxMsgbuf[1].format=RxMsgbuf[2].format=RxMsgbuf[3].format=RxMsgbuf[4].format=RxMsgbuf[5].format=RxMsgbuf[6].format=0X00;
-	RxMsgbuf[0].dataA[0]=RxMsgbuf[1].dataA[0]=RxMsgbuf[2].dataA[0]=RxMsgbuf[3].dataA[0]=RxMsgbuf[4].dataA[0]=RxMsgbuf[5].dataA[0]=RxMsgbuf[6].dataA[0]=0x00;
-	RxMsgbuf[0].dataA[1]=RxMsgbuf[1].dataA[1]=RxMsgbuf[2].dataA[1]=RxMsgbuf[3].dataA[1]=RxMsgbuf[4].dataA[1]=RxMsgbuf[5].dataA[1]=RxMsgbuf[6].dataA[1]=0x00;
-	RxMsgbuf[0].dataA[2]=RxMsgbuf[1].dataA[2]=RxMsgbuf[2].dataA[2]=RxMsgbuf[3].dataA[2]=RxMsgbuf[4].dataA[2]=RxMsgbuf[5].dataA[2]=RxMsgbuf[6].dataA[2]=0x00;
-	RxMsgbuf[0].dataA[3]=RxMsgbuf[1].dataA[3]=RxMsgbuf[2].dataA[3]=RxMsgbuf[3].dataA[3]=RxMsgbuf[4].dataA[3]=RxMsgbuf[5].dataA[3]=RxMsgbuf[6].dataA[3]=0x00;
+  RxMsgbuf[0].id =RxMsgbuf[1].id =RxMsgbuf[2].id =RxMsgbuf[3].id=RxMsgbuf[4].id =RxMsgbuf[5].id=RxMsgbuf[6].id=RxMsgbuf[7].id=RxMsgbuf[8].id=RxMsgbuf[9].id=RxMsgbuf[10].id=RxMsgbuf[11].id=RxMsgbuf[12].id=0x00;
+  RxMsgbuf[0].len =RxMsgbuf[1].len= RxMsgbuf[2].len =RxMsgbuf[3].len= RxMsgbuf[4].len =RxMsgbuf[5].len= RxMsgbuf[6].len =RxMsgbuf[7].len=RxMsgbuf[8].len=RxMsgbuf[9].len=RxMsgbuf[10].len=RxMsgbuf[11].len=RxMsgbuf[12].len=0x00;
+	RxMsgbuf[0].type=RxMsgbuf[1].type=RxMsgbuf[2].type=RxMsgbuf[3].type=RxMsgbuf[4].type=RxMsgbuf[5].type=RxMsgbuf[6].type=RxMsgbuf[7].type=RxMsgbuf[8].type=RxMsgbuf[9].type=RxMsgbuf[10].type=RxMsgbuf[11].type=RxMsgbuf[12].type=0x00;
+	RxMsgbuf[0].format=RxMsgbuf[1].format=RxMsgbuf[2].format=RxMsgbuf[3].format=RxMsgbuf[4].format=RxMsgbuf[5].format=RxMsgbuf[6].format=RxMsgbuf[7].format=RxMsgbuf[8].format=RxMsgbuf[9].format=RxMsgbuf[10].format=RxMsgbuf[11].format=RxMsgbuf[12].format=0X00;
+	RxMsgbuf[0].dataA[0]=RxMsgbuf[1].dataA[0]=RxMsgbuf[2].dataA[0]=RxMsgbuf[3].dataA[0]=RxMsgbuf[4].dataA[0]=RxMsgbuf[5].dataA[0]=RxMsgbuf[6].dataA[0]=RxMsgbuf[7].dataA[0]=RxMsgbuf[8].dataA[0]=RxMsgbuf[9].dataA[0]=RxMsgbuf[10].dataA[0]=RxMsgbuf[11].dataA[0]=RxMsgbuf[12].dataA[0]=0x00;
+	RxMsgbuf[0].dataA[1]=RxMsgbuf[1].dataA[1]=RxMsgbuf[2].dataA[1]=RxMsgbuf[3].dataA[1]=RxMsgbuf[4].dataA[1]=RxMsgbuf[5].dataA[1]=RxMsgbuf[6].dataA[1]=RxMsgbuf[7].dataA[1]=RxMsgbuf[8].dataA[1]=RxMsgbuf[9].dataA[1]=RxMsgbuf[10].dataA[1]=RxMsgbuf[11].dataA[1]=RxMsgbuf[12].dataA[1]=0x00;
+	RxMsgbuf[0].dataA[2]=RxMsgbuf[1].dataA[2]=RxMsgbuf[2].dataA[2]=RxMsgbuf[3].dataA[2]=RxMsgbuf[4].dataA[2]=RxMsgbuf[5].dataA[2]=RxMsgbuf[6].dataA[2]=RxMsgbuf[7].dataA[2]=RxMsgbuf[8].dataA[2]=RxMsgbuf[9].dataA[2]=RxMsgbuf[10].dataA[2]=RxMsgbuf[11].dataA[2]=RxMsgbuf[12].dataA[2]=0x00;
+	RxMsgbuf[0].dataA[3]=RxMsgbuf[1].dataA[3]=RxMsgbuf[2].dataA[3]=RxMsgbuf[3].dataA[3]=RxMsgbuf[4].dataA[3]=RxMsgbuf[5].dataA[3]=RxMsgbuf[6].dataA[3]=RxMsgbuf[7].dataA[3]=RxMsgbuf[8].dataA[3]=RxMsgbuf[9].dataA[3]=RxMsgbuf[10].dataA[3]=RxMsgbuf[11].dataA[3]=RxMsgbuf[12].dataA[3]=0x00;
 	
-	RxMsgbuf[0].dataB[0]=RxMsgbuf[1].dataB[0]=RxMsgbuf[2].dataB[0]=RxMsgbuf[3].dataB[0]=RxMsgbuf[4].dataB[0]=RxMsgbuf[5].dataB[0]=RxMsgbuf[6].dataB[0]=0x00;
-	RxMsgbuf[0].dataB[1]=RxMsgbuf[1].dataB[1]=RxMsgbuf[2].dataB[1]=RxMsgbuf[3].dataB[1]=RxMsgbuf[4].dataB[1]=RxMsgbuf[5].dataB[1]=RxMsgbuf[6].dataB[1]=0x00;
-	RxMsgbuf[0].dataB[2]=RxMsgbuf[1].dataB[2]=RxMsgbuf[2].dataB[2]=RxMsgbuf[3].dataB[2]=RxMsgbuf[4].dataB[2]=RxMsgbuf[5].dataB[2]=RxMsgbuf[6].dataB[2]=0x00;
-	RxMsgbuf[0].dataB[3]=RxMsgbuf[1].dataB[3]=RxMsgbuf[2].dataB[3]=RxMsgbuf[3].dataB[3]=RxMsgbuf[4].dataB[3]=RxMsgbuf[5].dataB[3]=RxMsgbuf[6].dataB[3]=0x00;
+	RxMsgbuf[0].dataB[0]=RxMsgbuf[1].dataB[0]=RxMsgbuf[2].dataB[0]=RxMsgbuf[3].dataB[0]=RxMsgbuf[4].dataB[0]=RxMsgbuf[5].dataB[0]=RxMsgbuf[6].dataB[0]=RxMsgbuf[7].dataB[0]=RxMsgbuf[8].dataB[0]=RxMsgbuf[9].dataB[0]=RxMsgbuf[10].dataB[0]=RxMsgbuf[11].dataB[0]=RxMsgbuf[12].dataB[0]=0x00;
+	RxMsgbuf[0].dataB[1]=RxMsgbuf[1].dataB[1]=RxMsgbuf[2].dataB[1]=RxMsgbuf[3].dataB[1]=RxMsgbuf[4].dataB[1]=RxMsgbuf[5].dataB[1]=RxMsgbuf[6].dataB[1]=RxMsgbuf[7].dataB[1]=RxMsgbuf[8].dataB[1]=RxMsgbuf[9].dataB[1]=RxMsgbuf[10].dataB[1]=RxMsgbuf[11].dataB[1]=RxMsgbuf[12].dataB[1]=0x00;
+	RxMsgbuf[0].dataB[2]=RxMsgbuf[1].dataB[2]=RxMsgbuf[2].dataB[2]=RxMsgbuf[3].dataB[2]=RxMsgbuf[4].dataB[2]=RxMsgbuf[5].dataB[2]=RxMsgbuf[6].dataB[2]=RxMsgbuf[7].dataB[2]=RxMsgbuf[8].dataB[2]=RxMsgbuf[9].dataB[2]=RxMsgbuf[10].dataB[2]=RxMsgbuf[11].dataB[2]=RxMsgbuf[12].dataB[2]=0x00;
+	RxMsgbuf[0].dataB[3]=RxMsgbuf[1].dataB[3]=RxMsgbuf[2].dataB[3]=RxMsgbuf[3].dataB[3]=RxMsgbuf[4].dataB[3]=RxMsgbuf[5].dataB[3]=RxMsgbuf[6].dataB[3]=RxMsgbuf[7].dataB[3]=RxMsgbuf[8].dataB[3]=RxMsgbuf[9].dataB[3]=RxMsgbuf[10].dataB[3]=RxMsgbuf[11].dataB[3]=RxMsgbuf[12].dataB[3]=0x00;
 	
 }
 
@@ -162,7 +181,6 @@ void CAN_IRQHandler(void)
     //check receive interrupt
     if((IntStatus >> 0) & 0x01)
     {
-			  _DBG_("Message received!");
         CAN_ReceiveMsg(LPC_CAN, (CAN_MSG_Type *)&RxMsgbuf[count]);
 		  	count++;
         RxFlg = TRUE;

@@ -7,3 +7,104 @@ D:\CAN 数据解析\CAN_flyaudiov2.0\Keil\can_simple_tx_rx.uvproj
 Project File Date:  09/24/2018
 
 <h2>Output:</h2>
+Rebuild target 'LPC1700 FLASH'
+assembling startup_LPC17xx.s...
+compiling system_LPC17xx.c...
+compiling debug_frmwrk.c...
+compiling lpc17xx_can.c...
+compiling lpc17xx_clkpwr.c...
+compiling lpc17xx_exti.c...
+compiling lpc17xx_pinsel.c...
+compiling lpc17xx_uart.c...
+compiling can_simple_tx_rx.c...
+..\can_simple_txrx\can_simple_tx_rx.c(104): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(105): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(106): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(107): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(108): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(108): error:  #137: expression must be a modifiable lvalue
+..\can_simple_txrx\can_simple_tx_rx.c(108): error:  #65: expected a ";"
+compiling main.c...
+..\Main\main.c(15): warning:  #177-D: variable "status" was declared but never referenced
+".\Flash\can_simple_tx_rx.axf" - 2 Errors, 6 Warning(s).
+Target not created
+Build target 'LPC1700 FLASH'
+compiling can_simple_tx_rx.c...
+..\can_simple_txrx\can_simple_tx_rx.c(104): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(105): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(106): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(107): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(108): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(108): error:  #65: expected a ";"
+".\Flash\can_simple_tx_rx.axf" - 1 Errors, 5 Warning(s).
+Target not created
+Build target 'LPC1700 FLASH'
+compiling can_simple_tx_rx.c...
+..\can_simple_txrx\can_simple_tx_rx.c(104): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(105): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(106): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(107): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(108): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(108): error:  #137: expression must be a modifiable lvalue
+".\Flash\can_simple_tx_rx.axf" - 1 Errors, 5 Warning(s).
+Target not created
+Build target 'LPC1700 FLASH'
+compiling can_simple_tx_rx.c...
+..\can_simple_txrx\can_simple_tx_rx.c(104): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(105): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(106): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(107): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(108): warning:  #175-D: subscript out of range
+linking...
+Program Size: Code=14868 RO-data=268 RW-data=376 ZI-data=740  
+FromELF: creating hex file...
+".\Flash\can_simple_tx_rx.axf" - 0 Errors, 5 Warning(s).
+Build target 'LPC1700 FLASH'
+compiling can_simple_tx_rx.c...
+..\can_simple_txrx\can_simple_tx_rx.c(104): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(105): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(106): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(107): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(108): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(109): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(110): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(111): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(113): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(114): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(115): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(116): warning:  #175-D: subscript out of range
+linking...
+Program Size: Code=15048 RO-data=268 RW-data=376 ZI-data=740  
+FromELF: creating hex file...
+".\Flash\can_simple_tx_rx.axf" - 0 Errors, 12 Warning(s).
+Build target 'LPC1700 FLASH'
+linking...
+Program Size: Code=15048 RO-data=268 RW-data=376 ZI-data=740  
+FromELF: creating hex file...
+".\Flash\can_simple_tx_rx.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\CAN 数据解析\\CAN_flyaudiov2.0\\Keil\\Flash\\can_simple_tx_rx.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'LPC1700 FLASH'
+compiling can_simple_tx_rx.c...
+..\can_simple_txrx\can_simple_tx_rx.c(104): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(105): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(106): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(107): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(108): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(109): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(110): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(111): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(113): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(114): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(115): warning:  #175-D: subscript out of range
+..\can_simple_txrx\can_simple_tx_rx.c(116): warning:  #175-D: subscript out of range
+linking...
+Program Size: Code=15008 RO-data=268 RW-data=376 ZI-data=740  
+FromELF: creating hex file...
+".\Flash\can_simple_tx_rx.axf" - 0 Errors, 12 Warning(s).
+Load "D:\\CAN 数据解析\\CAN_flyaudiov2.0\\Keil\\Flash\\can_simple_tx_rx.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
