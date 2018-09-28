@@ -97,7 +97,10 @@ void PrintMessage(CAN_MSG_Type* CAN_Msg)
 
 void CAN_InitRXMessage(void)
 {
-
+  TxMsg.id=0x020; TxMsg.len=8; TxMsg.format=STD_ID_FORMAT; TxMsg.type=DATA_FRAME;
+	TxMsg.dataA[0] = TxMsg.dataA[1] = TxMsg.dataA[2] = TxMsg.dataA[3] = 0x00;
+  TxMsg.dataB[0] = TxMsg.dataB[1] = TxMsg.dataB[2] = TxMsg.dataB[3] = 0x00;
+	
   RxMsgbuf[0].id =RxMsgbuf[1].id =RxMsgbuf[2].id =RxMsgbuf[3].id=RxMsgbuf[4].id =RxMsgbuf[5].id=RxMsgbuf[6].id=0x00;
   RxMsgbuf[0].len =RxMsgbuf[1].len= RxMsgbuf[2].len =RxMsgbuf[3].len= RxMsgbuf[4].len =RxMsgbuf[5].len= RxMsgbuf[6].len =0x00;
 	RxMsgbuf[0].type=RxMsgbuf[1].type=RxMsgbuf[2].type=RxMsgbuf[3].type=RxMsgbuf[4].type=RxMsgbuf[5].type=RxMsgbuf[6].type=0x00;

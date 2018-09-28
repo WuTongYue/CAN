@@ -4,17 +4,19 @@
 extern uint8_t menu[];
 extern __IO CAN_MSG_Type RxMsgbuf[];
 extern uint8_t count;
-__IO CAN_MSG_Type TxMsg;
-__IO CAN_MSG_Type RxMsg;
+ CAN_MSG_Type TxMsg;
+ CAN_MSG_Type RxMsg;
 __IO Bool RxFlg =  FALSE;
 __IO Bool TxFlg =  FALSE;
 
 
 int main(void) 
 { 
-
+    uint8_t status;
     PINSEL_CFG_Type PinCfg;
   
+ //  	SystemInit();
+	
     debug_frmwrk_init();
     print_menu(menu);
 
@@ -34,7 +36,7 @@ int main(void)
     _DBG_("CAN init5\n\r");
     
     //Initialize CAN
-    CAN_Init(LPC_CAN, 500000);
+    CAN_Init(LPC_CAN, 1000000);
 	
     //Enable Interrupt
     CAN_IRQCmd(LPC_CAN, CANINT_RIE, ENABLE);
@@ -46,12 +48,18 @@ int main(void)
 		// Set AF Mode
     CAN_SetAFMode(LPC_CANAF, CAN_AccBP);
 		
+		CAN_ModeConfig(LPC_CAN,CAN_OPERATING_MODE,ENABLE);
     
 		CAN_InitRXMessage();     
 		
+		
     while (1)                                         
     {
-     
+       status=CAN_SendMsg(LPC_CAN,&TxMsg);
+			if(status==SUCCESS )
+			{
+					 _DBG_("CAN send Message success!");
+			}
         if(RxFlg)
         {
          
