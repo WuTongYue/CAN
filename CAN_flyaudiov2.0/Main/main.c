@@ -36,7 +36,7 @@ int main(void)
     _DBG_("CAN init5\n\r");
     
     //Initialize CAN
-    CAN_Init(LPC_CAN, 1000000);
+    CAN_Init(LPC_CAN, 500000);
 	
     //Enable Interrupt
     CAN_IRQCmd(LPC_CAN, CANINT_RIE, ENABLE);
@@ -48,18 +48,14 @@ int main(void)
 		// Set AF Mode
     CAN_SetAFMode(LPC_CANAF, CAN_AccBP);
 		
-		CAN_ModeConfig(LPC_CAN,CAN_OPERATING_MODE,ENABLE);
+	//	CAN_ModeConfig(LPC_CAN,CAN_OPERATING_MODE,ENABLE);
     
 		CAN_InitRXMessage();     
 		
 		
     while (1)                                         
     {
-       status=CAN_SendMsg(LPC_CAN,&TxMsg);
-			if(status==SUCCESS )
-			{
-					 _DBG_("CAN send Message success!");
-			}
+
         if(RxFlg)
         {
          
