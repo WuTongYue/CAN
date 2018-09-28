@@ -74,6 +74,7 @@ extern void (*_db_hex_32_no0X)(LPC_UART_TypeDef *UARTx, uint32_t hexn);
 extern uint8_t (*_db_get_char)(LPC_UART_TypeDef *UARTx);
 
 void UARTPutChar (LPC_UART_TypeDef *UARTx, uint8_t ch);
+void UARTPutChar_withspace(LPC_UART_TypeDef *UARTx, uint8_t ch);
 void UARTPuts(LPC_UART_TypeDef *UARTx, const void *str);
 void UARTPuts_(LPC_UART_TypeDef *UARTx, const void *str);
 void UARTPutDec(LPC_UART_TypeDef *UARTx, uint8_t decnum);

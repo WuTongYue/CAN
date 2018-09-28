@@ -476,6 +476,7 @@ void UART_ConfigStructInit(UART_CFG_Type *UART_InitStruct)
  **********************************************************************/
 void UART_SendByte(LPC_UART_TypeDef* UARTx, uint8_t Data)
 {
+	  
     CHECK_PARAM(PARAM_UARTx(UARTx));
 
     if (((LPC_UART1_TypeDef *)UARTx) == LPC_UART1)
@@ -489,6 +490,29 @@ void UART_SendByte(LPC_UART_TypeDef* UARTx, uint8_t Data)
 
 }
 
+//格空格输出数据
+void UART_SendByte_withspace(LPC_UART_TypeDef* UARTx, uint8_t Data)   
+{
+	  static uint8_t count=0;
+    CHECK_PARAM(PARAM_UARTx(UARTx));
+
+    if (((LPC_UART1_TypeDef *)UARTx) == LPC_UART1)
+    {
+        ((LPC_UART1_TypeDef *)UARTx)->/*RBTHDLR.*/THR = Data & UART_THR_MASKBIT;
+    }
+    else
+    {
+        UARTx->/*RBTHDLR.*/THR = Data & UART_THR_MASKBIT;
+			  count++;
+			  if(count==2)
+				{
+            UARTx->/*RBTHDLR.*/THR =32;  //输出空格
+					  count=0;
+				}
+			 
+    }
+
+}
 
 /*********************************************************************//**
  * @brief       Receive a single data from UART peripheral
@@ -576,6 +600,58 @@ uint32_t UART_Send(LPC_UART_TypeDef *UARTx, uint8_t *txbuf,
     }
     return bSent;
 }
+
+
+//发送字符，含空格
+uint32_t UART_Send_withspace(LPC_UART_TypeDef *UARTx, uint8_t *txbuf,
+        uint32_t buflen, TRANSFER_BLOCK_Type flag)
+{
+    uint32_t bToSend, bSent, timeOut, fifo_cnt;
+    uint8_t *pChar = txbuf;
+
+    bToSend = buflen;
+
+    // blocking mode
+    if (flag == BLOCKING) {
+        bSent = 0;
+        while (bToSend){
+            timeOut = UART_BLOCKING_TIMEOUT;
+            // Wait for THR empty with timeout
+            while (!(UARTx->LSR & UART_LSR_THRE)) {
+                if (timeOut == 0) break;
+                timeOut--;
+            }
+            // Time out!
+            if(timeOut == 0) break;
+            fifo_cnt = UART_TX_FIFO_SIZE;
+            while (fifo_cnt && bToSend){
+                UART_SendByte_withspace(UARTx, (*pChar++));
+                fifo_cnt--;
+                bToSend--;
+                bSent++;
+            }
+        }
+    }
+    // None blocking mode
+    else {
+        bSent = 0;
+        while (bToSend) {
+            if (!(UARTx->LSR & UART_LSR_THRE)){
+                break;
+            }
+            fifo_cnt = UART_TX_FIFO_SIZE;
+            while (fifo_cnt && bToSend) {
+                UART_SendByte_withspace(UARTx, (*pChar++));
+                bToSend--;
+                fifo_cnt--;
+                bSent++;
+            }
+        }
+    }
+    return bSent;
+}
+
+
 
 /*********************************************************************//**
  * @brief       Receive a block of data via UART peripheral

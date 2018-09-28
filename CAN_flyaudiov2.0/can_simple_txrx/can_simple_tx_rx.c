@@ -91,20 +91,20 @@ void PrintMessage(CAN_MSG_Type* CAN_Msg)
     _DBG_("");
 }
 
-
+//  data = (CAN_Msg->dataA[0])|(CAN_Msg->dataA[1]<<8)|(CAN_Msg->dataA[2]<<16)|(CAN_Msg->dataA[3]<<24);
 void PrintMessage_simple(CAN_MSG_Type* CAN_Msg)
 {
     uint32_t data;
 
     _DBH32(CAN_Msg->id);_DBG_("");
 
-    _DBG_("  ");_DBD8(CAN_Msg->len);_DBG_(" BYTE");
+    _DBG_("  ");_DBD8(CAN_Msg->len);
 
-    data = (CAN_Msg->dataA[0])|(CAN_Msg->dataA[1]<<8)|(CAN_Msg->dataA[2]<<16)|(CAN_Msg->dataA[3]<<24);
+    data = (CAN_Msg->dataA[0]<<24)|(CAN_Msg->dataA[1]<<16)|(CAN_Msg->dataA[2]<<8)|(CAN_Msg->dataA[3]);
 
     _DBG_("  "); _DBH32_no0x(data);_DBG_("");
 
-    data = (CAN_Msg->dataB[0])|(CAN_Msg->dataB[1]<<8)|(CAN_Msg->dataB[2]<<16)|(CAN_Msg->dataB[3]<<24);
+    data = (CAN_Msg->dataB[0]<<24)|(CAN_Msg->dataB[1]<<16)|(CAN_Msg->dataB[2]<<8)|(CAN_Msg->dataB[3]);
 
     _DBG_("  "); _DBH32_no0x(data);_DBG_("");
 

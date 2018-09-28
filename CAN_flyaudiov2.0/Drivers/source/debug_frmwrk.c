@@ -71,6 +71,12 @@ void UARTPutChar (LPC_UART_TypeDef *UARTx, uint8_t ch)
 }
 
 
+void UARTPutChar_withspace(LPC_UART_TypeDef *UARTx, uint8_t ch)
+{
+    UART_Send_withspace(UARTx, &ch, 1, BLOCKING);
+}
+
+
 /*********************************************************************//**
  * @brief       Get a character to UART port
  * @param[in]   UARTx   Pointer to UART peripheral
@@ -249,24 +255,24 @@ void UARTPutHex32 (LPC_UART_TypeDef *UARTx, uint32_t hexnum)
 
 uint8_t Change8bit(uint8_t num)
 {
-   return  (((num&0x0f)<<4)|((num&0xf0)>>4));
+   return  (((num&0x0f)<<4)+((num&0xf0)>>4));
   
 }
 
 void UARTPutHex32_no0x(LPC_UART_TypeDef *UARTx, uint32_t hexnum)
 {
-    uint8_t nibble, i;
+    uint8_t nibble, i,result;
 
 //	for(i=0;i<8;i++)
 //	{
 //       nibble = (hexnum >> (4*i)) & 0x0F;
-//	  	result=(nibble > 9) ? ('A' + nibble - 10) : ('0' + nibble);
-//       UARTPutChar(UARTx, Change8bit(result));
+//		  result=(nibble > 9) ? ('A' + nibble - 10) : ('0' + nibble);
+//       UARTPutChar_withspace(UARTx, Change8bit(result));
 //	}
     i = 7;
     do {
         nibble = (hexnum >> (4*i)) & 0x0F;
-        UARTPutChar(UARTx, (nibble > 9) ? ('A' + nibble - 10) : ('0' + nibble));
+        UARTPutChar_withspace(UARTx, (nibble > 9) ? ('A' + nibble - 10) : ('0' + nibble));
     } while (i--);
 }
 

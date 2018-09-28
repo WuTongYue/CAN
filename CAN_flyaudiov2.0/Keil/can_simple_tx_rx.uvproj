@@ -351,7 +351,7 @@
               <MiscControls></MiscControls>
               <Define>__BUILD_WITH_EXAMPLE__=1,__RAM_MODE__=0</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Drivers\include;..\..\CAN_SimpleTxRx;..\Core\Device\NXP\LPC17xx\Include;..\can_simple_txrx</IncludePath>
+              <IncludePath>..\Drivers\include;..\..\CAN_SimpleTxRx;..\Core\Device\NXP\LPC17xx\Include;..\can_simple_txrx;..\can_simple_txrx\USART</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -502,6 +502,11 @@
               <FileName>can_simple_tx_rx.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\can_simple_txrx\can_simple_tx_rx.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\can_simple_txrx\USART\usart.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1079,6 +1084,11 @@
               <FileName>can_simple_tx_rx.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\can_simple_txrx\can_simple_tx_rx.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\can_simple_txrx\USART\usart.c</FilePath>
             </File>
           </Files>
         </Group>
