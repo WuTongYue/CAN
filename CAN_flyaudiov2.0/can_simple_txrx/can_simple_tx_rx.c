@@ -12,9 +12,7 @@ uint8_t menu[]=
     "********************************************************************************\n\r";
 
 extern __IO CAN_MSG_Type TxMsg;
-extern __IO CAN_MSG_Type RxMsg;
 extern __IO Bool RxFlg;
-extern __IO Bool TxFlg;
 CAN_MSG_Type RxMsgbuf[13];
 uint8_t count=0;
 
@@ -116,7 +114,7 @@ void PrintMessage_simple(CAN_MSG_Type* CAN_Msg)
 
 void CAN_InitRXMessage(void)
 {
-  TxMsg.id=0x020; TxMsg.len=8; TxMsg.format=STD_ID_FORMAT; TxMsg.type=DATA_FRAME;
+  TxMsg.id=0x1F2; TxMsg.len=8; TxMsg.format=STD_ID_FORMAT; TxMsg.type=DATA_FRAME;
 	TxMsg.dataA[0] = TxMsg.dataA[1] = TxMsg.dataA[2] = TxMsg.dataA[3] = 0x10;
   TxMsg.dataB[0] = TxMsg.dataB[1] = TxMsg.dataB[2] = TxMsg.dataB[3] = 0x02;
 	
@@ -190,17 +188,7 @@ void CAN_IRQHandler(void)
 			 }		
     }
 }
-/*********************************************************************//**
- * @brief       External interrupt 0 handler sub-routine
- * @param[in]   None
- * @return      None
- **********************************************************************/
-void EINT0_IRQHandler(void)
-{
-      //clear the EINT0 flag
-      EXTI_ClearEXTIFlag(EXTI_EINT0);
-      TxFlg = TRUE;
-}
+
 
 #ifdef  DEBUG
 /*******************************************************************************

@@ -1,21 +1,23 @@
 #include "can_simple_tx_rx.h"
 
+/***************************************************
+串口发送“1”，即可以发送一帧CAN的数据
+
+****************************************************/
 
 extern uint8_t menu[];
 extern CAN_MSG_Type RxMsgbuf[];
 extern uint8_t count;
  CAN_MSG_Type TxMsg;
- CAN_MSG_Type RxMsg;
 __IO Bool RxFlg =  FALSE;
-__IO Bool TxFlg =  FALSE;
 
 
 int main(void) 
 { 
-	  uint8_t i,status1;
-    PINSEL_CFG_Type PinCfg;
+   uint8_t i;
+	 uint16_t cnt;
+   PINSEL_CFG_Type PinCfg;
   
-	
     debug_frmwrk_init();
     print_menu(menu);
 
@@ -43,6 +45,9 @@ int main(void)
   
     //Enable CAN Interrupt
     NVIC_EnableIRQ(CAN_IRQn);
+		
+		//Enable UART3 Interrupt
+		NVIC_EnableIRQ(UART3_IRQn);
      
 		// Set AF Mode
     CAN_SetAFMode(LPC_CANAF, CAN_AccBP);
@@ -57,27 +62,16 @@ int main(void)
 			for(i=0;i<13;i++)
 			{
 					 PrintMessage_simple((CAN_MSG_Type*)&RxMsgbuf[i]);
+				   for(cnt=0;cnt<60000;cnt++);   //串口打印速度
 			}
 			
-
 //        if(RxFlg)
 //        {
 //         
 //           RxFlg = FALSE;
 //           PrintMessage_simple((CAN_MSG_Type*)&RxMsgbuf[count]);
 //        }
-				
-//     	 if(_DG=='1')
-//			 {
-//					status1=CAN_SendMsg(LPC_CAN,&TxMsg);
-//				  if(status1==SUCCESS)
-//					{
-//						 _DBG_("send message success\n\r");
-//					}
-//				  
-//			 }
-
-				 
+						 
        // CLKPWR_Sleep();                                    // Enter normal sleep mode
     }
 }

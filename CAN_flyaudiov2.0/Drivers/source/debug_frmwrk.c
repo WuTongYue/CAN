@@ -295,6 +295,9 @@ void UARTPutHex32_no0x(LPC_UART_TypeDef *UARTx, uint32_t hexnum)
  **********************************************************************/
 void debug_frmwrk_init(void)
 {
+	 // UART FIFO configuration Struct variable
+    UART_FIFO_CFG_Type UARTFIFOConfigStruct;
+	
     UART_CFG_Type UARTConfigStruct;
     PINSEL_CFG_Type PinCfg;
 
@@ -353,8 +356,18 @@ void debug_frmwrk_init(void)
     // Initialize DEBUG_UART_PORT peripheral with given to corresponding parameter
     UART_Init((LPC_UART_TypeDef *)DEBUG_UART_PORT, &UARTConfigStruct);
 
+    UART_FIFOConfigStructInit(&UARTFIFOConfigStruct);
+
+    // Initialize FIFO for UART3 peripheral
+    UART_FIFOConfig((LPC_UART_TypeDef *)DEBUG_UART_PORT, &UARTFIFOConfigStruct);
+		
     // Enable UART Transmit
     UART_TxCmd((LPC_UART_TypeDef *)DEBUG_UART_PORT, ENABLE);
+		
+		 /* Enable UART Rx interrupt */
+    UART_IntConfig((LPC_UART_TypeDef *)DEBUG_UART_PORT, UART_INTCFG_RBR, ENABLE);
+		   /* Enable UART line status interrupt */
+    UART_IntConfig((LPC_UART_TypeDef *)DEBUG_UART_PORT, UART_INTCFG_RLS, ENABLE);
 
     _db_msg = UARTPuts;
     _db_msg_ = UARTPuts_;
@@ -362,7 +375,7 @@ void debug_frmwrk_init(void)
     _db_hex = UARTPutHex;
     _db_hex_16 = UARTPutHex16;
     _db_hex_32 = UARTPutHex32;
-		_db_hex_32_no0X=UARTPutHex32_no0x;
+		_db_hex_32_no0X = UARTPutHex32_no0x;
 		_db_dec = UARTPutDec;
 		_db_dec_8= UARTPutDec8;
     _db_dec_16 = UARTPutDec16;
