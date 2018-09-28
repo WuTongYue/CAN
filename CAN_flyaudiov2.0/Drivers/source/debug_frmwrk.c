@@ -247,11 +247,22 @@ void UARTPutHex32 (LPC_UART_TypeDef *UARTx, uint32_t hexnum)
     } while (i--);
 }
 
+uint8_t Change8bit(uint8_t num)
+{
+   return  (((num&0x0f)<<4)|((num&0xf0)>>4));
+  
+}
 
 void UARTPutHex32_no0x(LPC_UART_TypeDef *UARTx, uint32_t hexnum)
 {
     uint8_t nibble, i;
 
+//	for(i=0;i<8;i++)
+//	{
+//       nibble = (hexnum >> (4*i)) & 0x0F;
+//	  	result=(nibble > 9) ? ('A' + nibble - 10) : ('0' + nibble);
+//       UARTPutChar(UARTx, Change8bit(result));
+//	}
     i = 7;
     do {
         nibble = (hexnum >> (4*i)) & 0x0F;

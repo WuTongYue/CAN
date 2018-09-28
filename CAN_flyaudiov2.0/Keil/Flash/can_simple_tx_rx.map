@@ -34,7 +34,6 @@ Section Cross References
     main.o(.text) refers to lpc17xx_can.o(.text) for CAN_Init
     main.o(.text) refers to can_simple_tx_rx.o(.data) for menu
     main.o(.text) refers to debug_frmwrk.o(.data) for _db_msg_
-    main.o(.text) refers to main.o(.data) for RxFlg
     main.o(.text) refers to can_simple_tx_rx.o(.bss) for RxMsgbuf
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
@@ -150,30 +149,30 @@ Image Symbol Table
     .ARM.__at_0x02FC                         0x000002fc   Section        4  startup_lpc17xx.o(.ARM.__at_0x02FC)
     .text                                    0x00000300   Section        0  system_lpc17xx.o(.text)
     .text                                    0x000005b0   Section        0  debug_frmwrk.o(.text)
-    .text                                    0x00000a8c   Section        0  lpc17xx_can.o(.text)
-    can_SetBaudrate                          0x00000a8d   Thumb Code   178  lpc17xx_can.o(.text)
-    .text                                    0x000028d8   Section        0  lpc17xx_exti.o(.text)
-    .text                                    0x00002990   Section        0  lpc17xx_pinsel.o(.text)
-    set_PinFunc                              0x00002991   Thumb Code    60  lpc17xx_pinsel.o(.text)
-    set_ResistorMode                         0x000029cd   Thumb Code    62  lpc17xx_pinsel.o(.text)
-    set_OpenDrainMode                        0x00002a0b   Thumb Code    44  lpc17xx_pinsel.o(.text)
-    .text                                    0x00002a90   Section        0  lpc17xx_uart.o(.text)
-    uart_set_divisors                        0x00002a91   Thumb Code   464  lpc17xx_uart.o(.text)
-    .text                                    0x000035bc   Section        0  can_simple_tx_rx.o(.text)
-    .text                                    0x00003b64   Section        0  main.o(.text)
-    .text                                    0x00003c28   Section        0  llushr.o(.text)
-    .text                                    0x00003c48   Section       36  init.o(.text)
-    .text                                    0x00003c6c   Section        0  __dczerorl2.o(.text)
-    i.__scatterload_copy                     0x00003cc8   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_zeroinit                 0x00003cd6   Section       14  handlers.o(i.__scatterload_zeroinit)
+    .text                                    0x00000a94   Section        0  lpc17xx_can.o(.text)
+    can_SetBaudrate                          0x00000a95   Thumb Code   178  lpc17xx_can.o(.text)
+    .text                                    0x000028e0   Section        0  lpc17xx_exti.o(.text)
+    .text                                    0x00002998   Section        0  lpc17xx_pinsel.o(.text)
+    set_PinFunc                              0x00002999   Thumb Code    60  lpc17xx_pinsel.o(.text)
+    set_ResistorMode                         0x000029d5   Thumb Code    62  lpc17xx_pinsel.o(.text)
+    set_OpenDrainMode                        0x00002a13   Thumb Code    44  lpc17xx_pinsel.o(.text)
+    .text                                    0x00002a98   Section        0  lpc17xx_uart.o(.text)
+    uart_set_divisors                        0x00002a99   Thumb Code   464  lpc17xx_uart.o(.text)
+    .text                                    0x000035c4   Section        0  can_simple_tx_rx.o(.text)
+    .text                                    0x00003b70   Section        0  main.o(.text)
+    .text                                    0x00003c30   Section        0  llushr.o(.text)
+    .text                                    0x00003c50   Section       36  init.o(.text)
+    .text                                    0x00003c74   Section        0  __dczerorl2.o(.text)
+    i.__scatterload_copy                     0x00003cd0   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_zeroinit                 0x00003cde   Section       14  handlers.o(i.__scatterload_zeroinit)
     .data                                    0x10000000   Section        4  system_lpc17xx.o(.data)
-    .data                                    0x10000004   Section       11  lpc17xx_can.o(.data)
-    .bss                                     0x10000010   Section       32  main.o(.bss)
-    STACK                                    0x10000030   Section      512  startup_lpc17xx.o(STACK)
-    .data                                    0x2007c000   Section       48  debug_frmwrk.o(.data)
-    .data                                    0x2007c030   Section      316  can_simple_tx_rx.o(.data)
-    .data                                    0x2007c16c   Section        2  main.o(.data)
-    .bss                                     0x2007c170   Section      192  can_simple_tx_rx.o(.bss)
+    .data                                    0x10000004   Section       48  debug_frmwrk.o(.data)
+    .data                                    0x10000034   Section        2  main.o(.data)
+    STACK                                    0x10000038   Section      512  startup_lpc17xx.o(STACK)
+    .data                                    0x2007c000   Section       11  lpc17xx_can.o(.data)
+    .data                                    0x2007c00b   Section      316  can_simple_tx_rx.o(.data)
+    .bss                                     0x2007c148   Section      208  can_simple_tx_rx.o(.bss)
+    .bss                                     0x2007c218   Section       32  main.o(.bss)
 
     Global Symbols
 
@@ -266,103 +265,104 @@ Image Symbol Table
     UARTPutHex                               0x00000889   Thumb Code    66  debug_frmwrk.o(.text)
     UARTPutHex16                             0x000008cb   Thumb Code    66  debug_frmwrk.o(.text)
     UARTPutHex32                             0x0000090d   Thumb Code    66  debug_frmwrk.o(.text)
-    UARTPutHex32_no0x                        0x0000094f   Thumb Code    58  debug_frmwrk.o(.text)
-    debug_frmwrk_init                        0x00000989   Thumb Code   230  debug_frmwrk.o(.text)
-    CAN_Init                                 0x00000b3f   Thumb Code   152  lpc17xx_can.o(.text)
-    CAN_DeInit                               0x00000bd7   Thumb Code    56  lpc17xx_can.o(.text)
-    CAN_SetupAFLUT                           0x00000c0f   Thumb Code  1768  lpc17xx_can.o(.text)
-    CAN_LoadExplicitEntry                    0x000012f7   Thumb Code   844  lpc17xx_can.o(.text)
-    CAN_LoadFullCANEntry                     0x00001643   Thumb Code   824  lpc17xx_can.o(.text)
-    CAN_LoadGroupEntry                       0x0000197b   Thumb Code   864  lpc17xx_can.o(.text)
-    CAN_RemoveEntry                          0x00001cdb   Thumb Code  1226  lpc17xx_can.o(.text)
-    CAN_SendMsg                              0x000021a5   Thumb Code   570  lpc17xx_can.o(.text)
-    CAN_ReceiveMsg                           0x000023df   Thumb Code   122  lpc17xx_can.o(.text)
-    FCAN_ReadObj                             0x00002459   Thumb Code   222  lpc17xx_can.o(.text)
-    CAN_GetCTRLStatus                        0x00002537   Thumb Code    84  lpc17xx_can.o(.text)
-    CAN_GetCRStatus                          0x0000258b   Thumb Code    66  lpc17xx_can.o(.text)
-    CAN_IRQCmd                               0x000025cd   Thumb Code   172  lpc17xx_can.o(.text)
-    CAN_SetAFMode                            0x00002679   Thumb Code    94  lpc17xx_can.o(.text)
-    CAN_ModeConfig                           0x000026d7   Thumb Code   342  lpc17xx_can.o(.text)
-    CAN_SetCommand                           0x0000282d   Thumb Code    38  lpc17xx_can.o(.text)
-    CAN_IntGetStatus                         0x00002853   Thumb Code    32  lpc17xx_can.o(.text)
-    CAN_FullCANIntGetStatus                  0x00002873   Thumb Code    34  lpc17xx_can.o(.text)
-    CAN_FullCANPendGetStatus                 0x00002895   Thumb Code    52  lpc17xx_can.o(.text)
-    EXTI_Init                                0x000028d9   Thumb Code    22  lpc17xx_exti.o(.text)
-    EXTI_DeInit                              0x000028ef   Thumb Code     2  lpc17xx_exti.o(.text)
-    EXTI_SetPolarity                         0x000028f1   Thumb Code    52  lpc17xx_exti.o(.text)
-    EXTI_SetMode                             0x00002925   Thumb Code    52  lpc17xx_exti.o(.text)
-    EXTI_Config                              0x00002959   Thumb Code    28  lpc17xx_exti.o(.text)
-    EXTI_ClearEXTIFlag                       0x00002975   Thumb Code    10  lpc17xx_exti.o(.text)
-    PINSEL_ConfigTraceFunc                   0x00002a37   Thumb Code    34  lpc17xx_pinsel.o(.text)
-    PINSEL_SetI2C0Pins                       0x00002a59   Thumb Code    16  lpc17xx_pinsel.o(.text)
-    PINSEL_ConfigPin                         0x00002a69   Thumb Code    36  lpc17xx_pinsel.o(.text)
-    UART_Init                                0x00002c61   Thumb Code   454  lpc17xx_uart.o(.text)
-    UART_TxCmd                               0x00002e27   Thumb Code   182  lpc17xx_uart.o(.text)
-    UART_DeInit                              0x00002edd   Thumb Code    82  lpc17xx_uart.o(.text)
-    UART_ConfigStructInit                    0x00002f2f   Thumb Code    18  lpc17xx_uart.o(.text)
-    UART_SendByte                            0x00002f41   Thumb Code    58  lpc17xx_uart.o(.text)
-    UART_ReceiveByte                         0x00002f7b   Thumb Code    56  lpc17xx_uart.o(.text)
-    UART_Send                                0x00002fb3   Thumb Code   150  lpc17xx_uart.o(.text)
-    UART_Receive                             0x00003049   Thumb Code   122  lpc17xx_uart.o(.text)
-    UART_ForceBreak                          0x000030c3   Thumb Code    68  lpc17xx_uart.o(.text)
-    UART_IntConfig                           0x00003107   Thumb Code   260  lpc17xx_uart.o(.text)
-    UART_GetLineStatus                       0x0000320b   Thumb Code    56  lpc17xx_uart.o(.text)
-    UART_GetIntId                            0x00003243   Thumb Code    52  lpc17xx_uart.o(.text)
-    UART_CheckBusy                           0x00003277   Thumb Code    18  lpc17xx_uart.o(.text)
-    UART_FIFOConfig                          0x00003289   Thumb Code   272  lpc17xx_uart.o(.text)
-    UART_FIFOConfigStructInit                0x00003399   Thumb Code    14  lpc17xx_uart.o(.text)
-    UART_ABCmd                               0x000033a7   Thumb Code   192  lpc17xx_uart.o(.text)
-    UART_ABClearIntPending                   0x00003467   Thumb Code    66  lpc17xx_uart.o(.text)
-    UART_IrDAInvtInputCmd                    0x000034a9   Thumb Code    80  lpc17xx_uart.o(.text)
-    UART_IrDACmd                             0x000034f9   Thumb Code    78  lpc17xx_uart.o(.text)
-    UART_IrDAPulseDivConfig                  0x00003547   Thumb Code   102  lpc17xx_uart.o(.text)
-    print_menu                               0x000035bd   Thumb Code    16  can_simple_tx_rx.o(.text)
-    Error_Loop                               0x000035cd   Thumb Code     4  can_simple_tx_rx.o(.text)
-    PrintMessage                             0x000035d1   Thumb Code   248  can_simple_tx_rx.o(.text)
-    PrintMessage_simple                      0x000036c9   Thumb Code   166  can_simple_tx_rx.o(.text)
-    CAN_InitRXMessage                        0x0000376f   Thumb Code   868  can_simple_tx_rx.o(.text)
-    CAN_SetupAFTable                         0x00003ad3   Thumb Code    40  can_simple_tx_rx.o(.text)
-    CAN_IRQHandler                           0x00003afb   Thumb Code    64  can_simple_tx_rx.o(.text)
-    EINT0_IRQHandler                         0x00003b3b   Thumb Code    16  can_simple_tx_rx.o(.text)
-    check_failed                             0x00003b4b   Thumb Code     4  can_simple_tx_rx.o(.text)
-    main                                     0x00003b65   Thumb Code   146  main.o(.text)
-    __aeabi_llsr                             0x00003c29   Thumb Code    32  llushr.o(.text)
-    _ll_ushift_r                             0x00003c29   Thumb Code     0  llushr.o(.text)
-    __scatterload                            0x00003c49   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x00003c49   Thumb Code     0  init.o(.text)
-    __decompress                             0x00003c6d   Thumb Code     0  __dczerorl2.o(.text)
-    __decompress1                            0x00003c6d   Thumb Code    92  __dczerorl2.o(.text)
-    __scatterload_copy                       0x00003cc9   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_zeroinit                   0x00003cd7   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    Region$$Table$$Base                      0x00003ce4   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00003d24   Number         0  anon$$obj.o(Region$$Table)
+    Change8bit                               0x0000094f   Thumb Code    12  debug_frmwrk.o(.text)
+    UARTPutHex32_no0x                        0x0000095b   Thumb Code    58  debug_frmwrk.o(.text)
+    debug_frmwrk_init                        0x00000995   Thumb Code   224  debug_frmwrk.o(.text)
+    CAN_Init                                 0x00000b47   Thumb Code   152  lpc17xx_can.o(.text)
+    CAN_DeInit                               0x00000bdf   Thumb Code    56  lpc17xx_can.o(.text)
+    CAN_SetupAFLUT                           0x00000c17   Thumb Code  1768  lpc17xx_can.o(.text)
+    CAN_LoadExplicitEntry                    0x000012ff   Thumb Code   844  lpc17xx_can.o(.text)
+    CAN_LoadFullCANEntry                     0x0000164b   Thumb Code   824  lpc17xx_can.o(.text)
+    CAN_LoadGroupEntry                       0x00001983   Thumb Code   864  lpc17xx_can.o(.text)
+    CAN_RemoveEntry                          0x00001ce3   Thumb Code  1226  lpc17xx_can.o(.text)
+    CAN_SendMsg                              0x000021ad   Thumb Code   570  lpc17xx_can.o(.text)
+    CAN_ReceiveMsg                           0x000023e7   Thumb Code   122  lpc17xx_can.o(.text)
+    FCAN_ReadObj                             0x00002461   Thumb Code   222  lpc17xx_can.o(.text)
+    CAN_GetCTRLStatus                        0x0000253f   Thumb Code    84  lpc17xx_can.o(.text)
+    CAN_GetCRStatus                          0x00002593   Thumb Code    66  lpc17xx_can.o(.text)
+    CAN_IRQCmd                               0x000025d5   Thumb Code   172  lpc17xx_can.o(.text)
+    CAN_SetAFMode                            0x00002681   Thumb Code    94  lpc17xx_can.o(.text)
+    CAN_ModeConfig                           0x000026df   Thumb Code   342  lpc17xx_can.o(.text)
+    CAN_SetCommand                           0x00002835   Thumb Code    38  lpc17xx_can.o(.text)
+    CAN_IntGetStatus                         0x0000285b   Thumb Code    32  lpc17xx_can.o(.text)
+    CAN_FullCANIntGetStatus                  0x0000287b   Thumb Code    34  lpc17xx_can.o(.text)
+    CAN_FullCANPendGetStatus                 0x0000289d   Thumb Code    52  lpc17xx_can.o(.text)
+    EXTI_Init                                0x000028e1   Thumb Code    22  lpc17xx_exti.o(.text)
+    EXTI_DeInit                              0x000028f7   Thumb Code     2  lpc17xx_exti.o(.text)
+    EXTI_SetPolarity                         0x000028f9   Thumb Code    52  lpc17xx_exti.o(.text)
+    EXTI_SetMode                             0x0000292d   Thumb Code    52  lpc17xx_exti.o(.text)
+    EXTI_Config                              0x00002961   Thumb Code    28  lpc17xx_exti.o(.text)
+    EXTI_ClearEXTIFlag                       0x0000297d   Thumb Code    10  lpc17xx_exti.o(.text)
+    PINSEL_ConfigTraceFunc                   0x00002a3f   Thumb Code    34  lpc17xx_pinsel.o(.text)
+    PINSEL_SetI2C0Pins                       0x00002a61   Thumb Code    16  lpc17xx_pinsel.o(.text)
+    PINSEL_ConfigPin                         0x00002a71   Thumb Code    36  lpc17xx_pinsel.o(.text)
+    UART_Init                                0x00002c69   Thumb Code   454  lpc17xx_uart.o(.text)
+    UART_TxCmd                               0x00002e2f   Thumb Code   182  lpc17xx_uart.o(.text)
+    UART_DeInit                              0x00002ee5   Thumb Code    82  lpc17xx_uart.o(.text)
+    UART_ConfigStructInit                    0x00002f37   Thumb Code    18  lpc17xx_uart.o(.text)
+    UART_SendByte                            0x00002f49   Thumb Code    58  lpc17xx_uart.o(.text)
+    UART_ReceiveByte                         0x00002f83   Thumb Code    56  lpc17xx_uart.o(.text)
+    UART_Send                                0x00002fbb   Thumb Code   150  lpc17xx_uart.o(.text)
+    UART_Receive                             0x00003051   Thumb Code   122  lpc17xx_uart.o(.text)
+    UART_ForceBreak                          0x000030cb   Thumb Code    68  lpc17xx_uart.o(.text)
+    UART_IntConfig                           0x0000310f   Thumb Code   260  lpc17xx_uart.o(.text)
+    UART_GetLineStatus                       0x00003213   Thumb Code    56  lpc17xx_uart.o(.text)
+    UART_GetIntId                            0x0000324b   Thumb Code    52  lpc17xx_uart.o(.text)
+    UART_CheckBusy                           0x0000327f   Thumb Code    18  lpc17xx_uart.o(.text)
+    UART_FIFOConfig                          0x00003291   Thumb Code   272  lpc17xx_uart.o(.text)
+    UART_FIFOConfigStructInit                0x000033a1   Thumb Code    14  lpc17xx_uart.o(.text)
+    UART_ABCmd                               0x000033af   Thumb Code   192  lpc17xx_uart.o(.text)
+    UART_ABClearIntPending                   0x0000346f   Thumb Code    66  lpc17xx_uart.o(.text)
+    UART_IrDAInvtInputCmd                    0x000034b1   Thumb Code    80  lpc17xx_uart.o(.text)
+    UART_IrDACmd                             0x00003501   Thumb Code    78  lpc17xx_uart.o(.text)
+    UART_IrDAPulseDivConfig                  0x0000354f   Thumb Code   102  lpc17xx_uart.o(.text)
+    print_menu                               0x000035c5   Thumb Code    16  can_simple_tx_rx.o(.text)
+    Error_Loop                               0x000035d5   Thumb Code     4  can_simple_tx_rx.o(.text)
+    PrintMessage                             0x000035d9   Thumb Code   248  can_simple_tx_rx.o(.text)
+    PrintMessage_simple                      0x000036d1   Thumb Code   166  can_simple_tx_rx.o(.text)
+    CAN_InitRXMessage                        0x00003777   Thumb Code   872  can_simple_tx_rx.o(.text)
+    CAN_SetupAFTable                         0x00003adf   Thumb Code    40  can_simple_tx_rx.o(.text)
+    CAN_IRQHandler                           0x00003b07   Thumb Code    64  can_simple_tx_rx.o(.text)
+    EINT0_IRQHandler                         0x00003b47   Thumb Code    16  can_simple_tx_rx.o(.text)
+    check_failed                             0x00003b57   Thumb Code     4  can_simple_tx_rx.o(.text)
+    main                                     0x00003b71   Thumb Code   152  main.o(.text)
+    __aeabi_llsr                             0x00003c31   Thumb Code    32  llushr.o(.text)
+    _ll_ushift_r                             0x00003c31   Thumb Code     0  llushr.o(.text)
+    __scatterload                            0x00003c51   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x00003c51   Thumb Code     0  init.o(.text)
+    __decompress                             0x00003c75   Thumb Code     0  __dczerorl2.o(.text)
+    __decompress1                            0x00003c75   Thumb Code    92  __dczerorl2.o(.text)
+    __scatterload_copy                       0x00003cd1   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_zeroinit                   0x00003cdf   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Region$$Table$$Base                      0x00003cec   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00003d2c   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x10000000   Data           4  system_lpc17xx.o(.data)
-    CANAF_FullCAN_cnt                        0x10000004   Data           2  lpc17xx_can.o(.data)
-    CANAF_std_cnt                            0x10000006   Data           2  lpc17xx_can.o(.data)
-    CANAF_gstd_cnt                           0x10000008   Data           2  lpc17xx_can.o(.data)
-    CANAF_ext_cnt                            0x1000000a   Data           2  lpc17xx_can.o(.data)
-    CANAF_gext_cnt                           0x1000000c   Data           2  lpc17xx_can.o(.data)
-    FULLCAN_ENABLE                           0x1000000e   Data           1  lpc17xx_can.o(.data)
-    TxMsg                                    0x10000010   Data          16  main.o(.bss)
-    RxMsg                                    0x10000020   Data          16  main.o(.bss)
-    __initial_sp                             0x10000230   Data           0  startup_lpc17xx.o(STACK)
-    _db_msg                                  0x2007c000   Data           4  debug_frmwrk.o(.data)
-    _db_msg_                                 0x2007c004   Data           4  debug_frmwrk.o(.data)
-    _db_char                                 0x2007c008   Data           4  debug_frmwrk.o(.data)
-    _db_dec                                  0x2007c00c   Data           4  debug_frmwrk.o(.data)
-    _db_dec_8                                0x2007c010   Data           4  debug_frmwrk.o(.data)
-    _db_dec_16                               0x2007c014   Data           4  debug_frmwrk.o(.data)
-    _db_dec_32                               0x2007c018   Data           4  debug_frmwrk.o(.data)
-    _db_hex                                  0x2007c01c   Data           4  debug_frmwrk.o(.data)
-    _db_hex_16                               0x2007c020   Data           4  debug_frmwrk.o(.data)
-    _db_hex_32                               0x2007c024   Data           4  debug_frmwrk.o(.data)
-    _db_hex_32_no0X                          0x2007c028   Data           4  debug_frmwrk.o(.data)
-    _db_get_char                             0x2007c02c   Data           4  debug_frmwrk.o(.data)
-    menu                                     0x2007c030   Data         315  can_simple_tx_rx.o(.data)
-    count                                    0x2007c16b   Data           1  can_simple_tx_rx.o(.data)
-    RxFlg                                    0x2007c16c   Data           1  main.o(.data)
-    TxFlg                                    0x2007c16d   Data           1  main.o(.data)
-    RxMsgbuf                                 0x2007c170   Data         192  can_simple_tx_rx.o(.bss)
+    _db_msg                                  0x10000004   Data           4  debug_frmwrk.o(.data)
+    _db_msg_                                 0x10000008   Data           4  debug_frmwrk.o(.data)
+    _db_char                                 0x1000000c   Data           4  debug_frmwrk.o(.data)
+    _db_dec                                  0x10000010   Data           4  debug_frmwrk.o(.data)
+    _db_dec_8                                0x10000014   Data           4  debug_frmwrk.o(.data)
+    _db_dec_16                               0x10000018   Data           4  debug_frmwrk.o(.data)
+    _db_dec_32                               0x1000001c   Data           4  debug_frmwrk.o(.data)
+    _db_hex                                  0x10000020   Data           4  debug_frmwrk.o(.data)
+    _db_hex_16                               0x10000024   Data           4  debug_frmwrk.o(.data)
+    _db_hex_32                               0x10000028   Data           4  debug_frmwrk.o(.data)
+    _db_hex_32_no0X                          0x1000002c   Data           4  debug_frmwrk.o(.data)
+    _db_get_char                             0x10000030   Data           4  debug_frmwrk.o(.data)
+    RxFlg                                    0x10000034   Data           1  main.o(.data)
+    TxFlg                                    0x10000035   Data           1  main.o(.data)
+    __initial_sp                             0x10000238   Data           0  startup_lpc17xx.o(STACK)
+    CANAF_FullCAN_cnt                        0x2007c000   Data           2  lpc17xx_can.o(.data)
+    CANAF_std_cnt                            0x2007c002   Data           2  lpc17xx_can.o(.data)
+    CANAF_gstd_cnt                           0x2007c004   Data           2  lpc17xx_can.o(.data)
+    CANAF_ext_cnt                            0x2007c006   Data           2  lpc17xx_can.o(.data)
+    CANAF_gext_cnt                           0x2007c008   Data           2  lpc17xx_can.o(.data)
+    FULLCAN_ENABLE                           0x2007c00a   Data           1  lpc17xx_can.o(.data)
+    menu                                     0x2007c00b   Data         315  can_simple_tx_rx.o(.data)
+    count                                    0x2007c146   Data           1  can_simple_tx_rx.o(.data)
+    RxMsgbuf                                 0x2007c148   Data         208  can_simple_tx_rx.o(.bss)
+    TxMsg                                    0x2007c218   Data          16  main.o(.bss)
+    RxMsg                                    0x2007c228   Data          16  main.o(.bss)
 
 
 
@@ -372,9 +372,9 @@ Memory Map of the image
 
   Image Entry point : 0x000000cd
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00003ea4, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x00003dcc])
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00003eac, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x00003df8])
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00003d24, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00003d2c, Max: 0x00020000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -397,41 +397,41 @@ Memory Map of the image
     0x000002fa   0x00000002   PAD
     0x000002fc   0x00000004   Code   RO            4    .ARM.__at_0x02FC    startup_lpc17xx.o
     0x00000300   0x000002b0   Code   RO           15    .text               system_lpc17xx.o
-    0x000005b0   0x000004dc   Code   RO           58    .text               debug_frmwrk.o
-    0x00000a8c   0x00001e4c   Code   RO          100    .text               lpc17xx_can.o
-    0x000028d8   0x000000b8   Code   RO          149    .text               lpc17xx_exti.o
-    0x00002990   0x00000100   Code   RO          172    .text               lpc17xx_pinsel.o
-    0x00002a90   0x00000b2c   Code   RO          192    .text               lpc17xx_uart.o
-    0x000035bc   0x000005a8   Code   RO          212    .text               can_simple_tx_rx.o
-    0x00003b64   0x000000c4   Code   RO          244    .text               main.o
-    0x00003c28   0x00000020   Code   RO          296    .text               mc_w.l(llushr.o)
-    0x00003c48   0x00000024   Code   RO          298    .text               mc_w.l(init.o)
-    0x00003c6c   0x0000005c   Code   RO          308    .text               mc_w.l(__dczerorl2.o)
-    0x00003cc8   0x0000000e   Code   RO          302    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00003cd6   0x0000000e   Code   RO          304    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x00003ce4   0x00000040   Data   RO          300    Region$$Table       anon$$obj.o
+    0x000005b0   0x000004e4   Code   RO           58    .text               debug_frmwrk.o
+    0x00000a94   0x00001e4c   Code   RO          100    .text               lpc17xx_can.o
+    0x000028e0   0x000000b8   Code   RO          149    .text               lpc17xx_exti.o
+    0x00002998   0x00000100   Code   RO          172    .text               lpc17xx_pinsel.o
+    0x00002a98   0x00000b2c   Code   RO          192    .text               lpc17xx_uart.o
+    0x000035c4   0x000005ac   Code   RO          212    .text               can_simple_tx_rx.o
+    0x00003b70   0x000000c0   Code   RO          244    .text               main.o
+    0x00003c30   0x00000020   Code   RO          296    .text               mc_w.l(llushr.o)
+    0x00003c50   0x00000024   Code   RO          298    .text               mc_w.l(init.o)
+    0x00003c74   0x0000005c   Code   RO          308    .text               mc_w.l(__dczerorl2.o)
+    0x00003cd0   0x0000000e   Code   RO          302    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00003cde   0x0000000e   Code   RO          304    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00003cec   0x00000040   Data   RO          300    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x00000230, Max: 0x00004000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x00000238, Max: 0x00004000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x10000000   0x00000004   Data   RW           16    .data               system_lpc17xx.o
-    0x10000004   0x0000000b   Data   RW          101    .data               lpc17xx_can.o
-    0x1000000f   0x00000001   PAD
-    0x10000010   0x00000020   Zero   RW          245    .bss                main.o
-    0x10000030   0x00000200   Zero   RW            1    STACK               startup_lpc17xx.o
+    0x10000004   0x00000030   Data   RW           59    .data               debug_frmwrk.o
+    0x10000034   0x00000002   Data   RW          246    .data               main.o
+    0x10000036   0x00000002   PAD
+    0x10000038   0x00000200   Zero   RW            1    STACK               startup_lpc17xx.o
 
 
-    Execution Region RW_IRAM2 (Base: 0x2007c000, Size: 0x00000230, Max: 0x00004000, ABSOLUTE, COMPRESSED[0x00000098])
+    Execution Region RW_IRAM2 (Base: 0x2007c000, Size: 0x00000238, Max: 0x00004000, ABSOLUTE, COMPRESSED[0x00000094])
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x2007c000   0x00000030   Data   RW           59    .data               debug_frmwrk.o
-    0x2007c030   0x0000013c   Data   RW          214    .data               can_simple_tx_rx.o
-    0x2007c16c   0x00000002   Data   RW          246    .data               main.o
-    0x2007c16e   0x00000002   PAD
-    0x2007c170   0x000000c0   Zero   RW          213    .bss                can_simple_tx_rx.o
+    0x2007c000   0x0000000b   Data   RW          101    .data               lpc17xx_can.o
+    0x2007c00b   0x0000013c   Data   RW          214    .data               can_simple_tx_rx.o
+    0x2007c147   0x00000001   PAD
+    0x2007c148   0x000000d0   Zero   RW          213    .bss                can_simple_tx_rx.o
+    0x2007c218   0x00000020   Zero   RW          245    .bss                main.o
 
 
 ==============================================================================
@@ -441,19 +441,19 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1448        278          0        316        192       2769   can_simple_tx_rx.o
-      1244         84          0         48          0      16634   debug_frmwrk.o
+      1452        280          0        316        208       2769   can_simple_tx_rx.o
+      1252         80          0         48          0      16833   debug_frmwrk.o
       7756        286          0         11          0      22175   lpc17xx_can.o
        336         32          0          0          0       1743   lpc17xx_clkpwr.o
        184         18          0          0          0       2433   lpc17xx_exti.o
        256          4          0          0          0       2101   lpc17xx_pinsel.o
       2860         96          0          0          0       7761   lpc17xx_uart.o
-       196         50          0          2         32      24850   main.o
+       192         40          0          2         32      24886   main.o
         40         12        204          0        512       1028   startup_lpc17xx.o
        688         80          0          4          0      23605   system_lpc17xx.o
 
     ----------------------------------------------------------------------
-     15008        940        268        384        736     105099   Object Totals
+     15016        928        268        384        752     105334   Object Totals
          0          0         64          0          0          0   (incl. Generated)
          0          0          0          3          0          0   (incl. Padding)
 
@@ -497,15 +497,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     15384        956        268        384        736     104527   Grand Totals
-     15384        956        268        168        736     104527   ELF Image Totals (compressed)
-     15384        956        268        168          0          0   ROM Totals
+     15392        944        268        384        752     104710   Grand Totals
+     15392        944        268        204        752     104710   ELF Image Totals (compressed)
+     15392        944        268        204          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                15652 (  15.29kB)
-    Total RW  Size (RW Data + ZI Data)              1120 (   1.09kB)
-    Total ROM Size (Code + RO Data + RW Data)      15820 (  15.45kB)
+    Total RO  Size (Code + RO Data)                15660 (  15.29kB)
+    Total RW  Size (RW Data + ZI Data)              1136 (   1.11kB)
+    Total ROM Size (Code + RO Data + RW Data)      15864 (  15.49kB)
 
 ==============================================================================
 

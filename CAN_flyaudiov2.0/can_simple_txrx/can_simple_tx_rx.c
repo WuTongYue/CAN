@@ -1,6 +1,6 @@
 #include "can_simple_tx_rx.h"
 
-#define RXCOUNT  12
+#define RXCOUNT  13
 
 uint8_t menu[]=
     "********************************************************************************\n\r"
@@ -15,7 +15,7 @@ extern __IO CAN_MSG_Type TxMsg;
 extern __IO CAN_MSG_Type RxMsg;
 extern __IO Bool RxFlg;
 extern __IO Bool TxFlg;
-__IO CAN_MSG_Type RxMsgbuf[12];
+CAN_MSG_Type RxMsgbuf[13];
 uint8_t count=0;
 
 
@@ -117,8 +117,8 @@ void PrintMessage_simple(CAN_MSG_Type* CAN_Msg)
 void CAN_InitRXMessage(void)
 {
   TxMsg.id=0x020; TxMsg.len=8; TxMsg.format=STD_ID_FORMAT; TxMsg.type=DATA_FRAME;
-	TxMsg.dataA[0] = TxMsg.dataA[1] = TxMsg.dataA[2] = TxMsg.dataA[3] = 0x00;
-  TxMsg.dataB[0] = TxMsg.dataB[1] = TxMsg.dataB[2] = TxMsg.dataB[3] = 0x00;
+	TxMsg.dataA[0] = TxMsg.dataA[1] = TxMsg.dataA[2] = TxMsg.dataA[3] = 0x10;
+  TxMsg.dataB[0] = TxMsg.dataB[1] = TxMsg.dataB[2] = TxMsg.dataB[3] = 0x02;
 	
   RxMsgbuf[0].id =RxMsgbuf[1].id =RxMsgbuf[2].id =RxMsgbuf[3].id=RxMsgbuf[4].id =RxMsgbuf[5].id=RxMsgbuf[6].id=RxMsgbuf[7].id=RxMsgbuf[8].id=RxMsgbuf[9].id=RxMsgbuf[10].id=RxMsgbuf[11].id=RxMsgbuf[12].id=0x00;
   RxMsgbuf[0].len =RxMsgbuf[1].len= RxMsgbuf[2].len =RxMsgbuf[3].len= RxMsgbuf[4].len =RxMsgbuf[5].len= RxMsgbuf[6].len =RxMsgbuf[7].len=RxMsgbuf[8].len=RxMsgbuf[9].len=RxMsgbuf[10].len=RxMsgbuf[11].len=RxMsgbuf[12].len=0x00;
@@ -184,7 +184,10 @@ void CAN_IRQHandler(void)
         CAN_ReceiveMsg(LPC_CAN, (CAN_MSG_Type *)&RxMsgbuf[count]);
 		  	count++;
         RxFlg = TRUE;
-			if(count==RXCOUNT)  count=0;
+		  if(count==RXCOUNT) 
+			 { 
+				 count=0;
+			 }		
     }
 }
 /*********************************************************************//**

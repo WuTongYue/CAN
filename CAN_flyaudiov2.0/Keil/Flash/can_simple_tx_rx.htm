@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Flash\can_simple_tx_rx.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Flash\can_simple_tx_rx.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Fri Sep 28 11:33:46 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Fri Sep 28 15:25:42 2018
 <BR><P>
 <H3>Maximum Stack Usage =        176 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -442,6 +442,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> debug_frmwrk.o(.text)
 </UL>
+<P><STRONG><a name="[8b]"></a>Change8bit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, debug_frmwrk.o(.text), UNUSED)
+
 <P><STRONG><a name="[44]"></a>UARTPutHex32_no0x</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, debug_frmwrk.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = UARTPutHex32_no0x &rArr; UARTPutChar &rArr; UART_Send &rArr; UART_SendByte
 </UL>
@@ -449,7 +451,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> debug_frmwrk.o(.text)
 </UL>
-<P><STRONG><a name="[45]"></a>debug_frmwrk_init</STRONG> (Thumb, 230 bytes, Stack size 24 bytes, debug_frmwrk.o(.text))
+<P><STRONG><a name="[45]"></a>debug_frmwrk_init</STRONG> (Thumb, 224 bytes, Stack size 24 bytes, debug_frmwrk.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = debug_frmwrk_init &rArr; UART_Init &rArr; uart_set_divisors &rArr; __aeabi_uldivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_TxCmd
@@ -563,9 +565,9 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;check_failed
 </UL>
 
-<P><STRONG><a name="[8b]"></a>EXTI_Init</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, lpc17xx_exti.o(.text), UNUSED)
+<P><STRONG><a name="[8c]"></a>EXTI_Init</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, lpc17xx_exti.o(.text), UNUSED)
 
-<P><STRONG><a name="[8c]"></a>EXTI_DeInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, lpc17xx_exti.o(.text), UNUSED)
+<P><STRONG><a name="[8d]"></a>EXTI_DeInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, lpc17xx_exti.o(.text), UNUSED)
 
 <P><STRONG><a name="[64]"></a>EXTI_SetPolarity</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, lpc17xx_exti.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_Config
@@ -584,9 +586,9 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EINT0_IRQHandler
 </UL>
 
-<P><STRONG><a name="[8d]"></a>PINSEL_ConfigTraceFunc</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, lpc17xx_pinsel.o(.text), UNUSED)
+<P><STRONG><a name="[8e]"></a>PINSEL_ConfigTraceFunc</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, lpc17xx_pinsel.o(.text), UNUSED)
 
-<P><STRONG><a name="[8e]"></a>PINSEL_SetI2C0Pins</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, lpc17xx_pinsel.o(.text), UNUSED)
+<P><STRONG><a name="[8f]"></a>PINSEL_SetI2C0Pins</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, lpc17xx_pinsel.o(.text), UNUSED)
 
 <P><STRONG><a name="[46]"></a>PINSEL_ConfigPin</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, lpc17xx_pinsel.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = PINSEL_ConfigPin &rArr; set_ResistorMode
@@ -676,13 +678,13 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;check_failed
 </UL>
 
-<P><STRONG><a name="[8f]"></a>UART_CheckBusy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, lpc17xx_uart.o(.text), UNUSED)
+<P><STRONG><a name="[90]"></a>UART_CheckBusy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, lpc17xx_uart.o(.text), UNUSED)
 
 <P><STRONG><a name="[70]"></a>UART_FIFOConfig</STRONG> (Thumb, 272 bytes, Stack size 16 bytes, lpc17xx_uart.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;check_failed
 </UL>
 
-<P><STRONG><a name="[90]"></a>UART_FIFOConfigStructInit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, lpc17xx_uart.o(.text), UNUSED)
+<P><STRONG><a name="[91]"></a>UART_FIFOConfigStructInit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, lpc17xx_uart.o(.text), UNUSED)
 
 <P><STRONG><a name="[71]"></a>UART_ABCmd</STRONG> (Thumb, 192 bytes, Stack size 24 bytes, lpc17xx_uart.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;check_failed
@@ -710,9 +712,9 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[91]"></a>Error_Loop</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, can_simple_tx_rx.o(.text), UNUSED)
+<P><STRONG><a name="[92]"></a>Error_Loop</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, can_simple_tx_rx.o(.text), UNUSED)
 
-<P><STRONG><a name="[92]"></a>PrintMessage</STRONG> (Thumb, 248 bytes, Stack size 16 bytes, can_simple_tx_rx.o(.text), UNUSED)
+<P><STRONG><a name="[93]"></a>PrintMessage</STRONG> (Thumb, 248 bytes, Stack size 16 bytes, can_simple_tx_rx.o(.text), UNUSED)
 
 <P><STRONG><a name="[7a]"></a>PrintMessage_simple</STRONG> (Thumb, 166 bytes, Stack size 16 bytes, can_simple_tx_rx.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = PrintMessage_simple
@@ -720,7 +722,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[79]"></a>CAN_InitRXMessage</STRONG> (Thumb, 868 bytes, Stack size 0 bytes, can_simple_tx_rx.o(.text))
+<P><STRONG><a name="[79]"></a>CAN_InitRXMessage</STRONG> (Thumb, 872 bytes, Stack size 0 bytes, can_simple_tx_rx.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -781,7 +783,7 @@ Global Symbols
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
 </UL>
 
-<P><STRONG><a name="[2d]"></a>main</STRONG> (Thumb, 146 bytes, Stack size 16 bytes, main.o(.text))
+<P><STRONG><a name="[2d]"></a>main</STRONG> (Thumb, 152 bytes, Stack size 16 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = main &rArr; debug_frmwrk_init &rArr; UART_Init &rArr; uart_set_divisors &rArr; __aeabi_uldivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_InitRXMessage
@@ -799,7 +801,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
 
-<P><STRONG><a name="[93]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
+<P><STRONG><a name="[94]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
 
 <P><STRONG><a name="[31]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
@@ -807,15 +809,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[94]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[95]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
-<P><STRONG><a name="[95]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[96]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
-<P><STRONG><a name="[96]"></a>__decompress1</STRONG> (Thumb, 92 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[97]"></a>__decompress1</STRONG> (Thumb, 92 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
-<P><STRONG><a name="[97]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[98]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[98]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[99]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 <P>
 <H3>
 Local Symbols
