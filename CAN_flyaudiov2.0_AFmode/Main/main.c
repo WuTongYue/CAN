@@ -60,10 +60,10 @@ int main(void)
 		
 		error = CAN_SetupAFLUT(LPC_CANAF,&AFTable); /* install AF Look-up Table */
     if (error != CAN_OK) {
-        _DBG_("Setup AF: ERROR");
+        _DBG_("Setup AF: ERROR...");
         while (1); // AF Table has error
     }
-    else _DBG_("Setup AF: SUCCESSFUL");_DBG_("");
+    else _DBG_("Setup AF: SUCCESSFUL..");_DBG_("");
 		
     while (1)                                         
     {
