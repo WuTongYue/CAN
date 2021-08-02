@@ -27,7 +27,7 @@
 EXECNAME    =can_test_simple_txrx
 
 
-
+include ../../../makesection/makeconfig 
 ########################################################################
 #
 # Pick up the configuration file in make section
